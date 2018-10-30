@@ -1,0 +1,34 @@
+" Universal Settings ------------------------------------------{{{
+	source ~/vimfiles/config/unirc.vim							" Get settings from unirc			
+"}}}
+
+" Movement ----------------------------------------------------{{{
+	map gt :vsc Window.NextTab<CR>
+	map gp :vsc Window.PreviousTab<CR>
+	map gc :vsc Window.CloseDocumentWindow<CR>
+	map gC :vsc Window.CloseAllDocuments<CR>
+	map gq :vsc Window.PinTab<CR>
+	map gQ :vsc OtherContextMenus.EasyMDIToolWindow.CloseAllButPinned<CR>
+	map gd :vsc ReSharper.ReSharper_GotoImplementations<CR>
+	map gi :vsc Edit.GoToDefinition<CR>
+	map gu :vsc ReSharper.ReSharper_FindUsages<CR>
+	map gU :vsc ReSharper.ReSharper_GotoUsage<CR>
+	map gs :vsc ReSharper.ReSharper_LocateInSolutionOrAssemblyExplorer<CR>
+	map g< :vsc View.NavigateBackward<CR>
+	map g> :vsc View.NavigateForward<CR>
+"}}}
+
+" Leader Shortcuts --------------------------------------------{{{
+	" Visual Studio shortcuts
+	nnoremap <leader>rr :vsc Refactor.Rename<CR>
+	nnoremap <leader>b :vsc Build.BuildSolution<CR>
+	nnoremap <leader>B :vsc Build.RebuildSolution<CR>
+	nnoremap <leader>da :vsc Debug.AttachtoProcess<CR>
+	vnoremap <leader>ec :vsc Edit.CommentSelection<CR>
+	vnoremap <leader>eu :vsc Edit.UncommentSelection<CR>
+	" Reload vsvimrc
+	nnoremap <leader>` :source ~/_vsvimrc<CR>
+"}}}
+
+" Custom Functions --------------------------------------------{{{
+"}}}
