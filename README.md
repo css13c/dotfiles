@@ -1,9 +1,9 @@
 These are my configuration files for Vim, Git, and AHK.
 
-To setup, simply do the following: 
-	1. Clone git repository to location of choice.
-	2. Open cmd with admin permissions
-	3. Go to the location of dotfiles and run setup.bat.
+To setup, simply do the following:  
+1. Clone git repository to location of choice.  
+2. Open cmd with admin permissions  
+3. Go to the location of dotfiles and run setup.bat.  
 
 This will only work on Windows machines. 
 
