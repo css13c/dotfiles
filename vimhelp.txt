@@ -1,8 +1,21 @@
 Personal Keybinding Cheat Sheet
 ---------------------------------
 
-Vim: 
+Vim:
+	<C-e> - Scroll Page Up
+	<C-y> - Scroll Page Down
+	Search Functionality:(:%s)
+		- Whitespace:
+			- Tabs '\t'
+			- Newline '\n'
+			- Carraige Return '\r'
+			- Space ' '
+			- Any Whitespace '\s'
 
-VsVim: 
+VsVim:
+	<leader>da - Attach to Process
+	<leader>db - Toggle Breakpoint on Line
+	<leader>ec - Comment selection (visual mode)
+	<leader>eu - Uncomment selection (visual mode)
 
-Vimium: 
+Vimium:

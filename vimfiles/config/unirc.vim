@@ -7,6 +7,11 @@
 	set laststatus=2											" Always dispaly the status line
 "}}}
 
+" Remaps ------------------------------------------------------{{{
+	" Remap Esc in Insert Mode
+	inoremap kj <Esc>
+"}}}
+
 " Searching ---------------------------------------------------{{{
 	set hlsearch												" Highlight search results
 	" Turn off highlights

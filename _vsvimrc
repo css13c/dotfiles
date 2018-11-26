@@ -1,5 +1,5 @@
 " Universal Settings ------------------------------------------{{{
-	source ~/vimfiles/config/unirc.vim							" Get settings from unirc			
+	source ~/vimfiles/config/unirc.vim							" Get settings from unirc
 "}}}
 
 " Movement ----------------------------------------------------{{{
@@ -24,11 +24,24 @@
 	nnoremap <leader>b :vsc Build.BuildSolution<CR>
 	nnoremap <leader>B :vsc Build.RebuildSolution<CR>
 	nnoremap <leader>da :vsc Debug.AttachtoProcess<CR>
+	nnoremap <leader>db :vsc Debug.ToggleBreakpoint<CR>
+	nnoremap <leader>ds :vsc Debug.Start<CR>
+	nnoremap <leader>dt :vsc Debug.StopDebugging<CR>
+	nnoremap <leader>dc :vsc DebuggerContextMenus.ProcessesWindow.ContinueProcess<CR>
 	vnoremap <leader>ec :vsc Edit.CommentSelection<CR>
 	vnoremap <leader>eu :vsc Edit.UncommentSelection<CR>
+	nnoremap <leader>us :vsc ReSharper.ReSharper_ShowUnitTestSessions<CR>
+	nnoremap <leader>ur :vsc ReSharper.ReSharper_UnitTestSessionRepeatPreviousRun<CR>
+	nnoremap <leader>ug :vsc ReSharper.ReSharper_UnitTestRunCurrentSession<CR>
+	nnoremap <leader>ua :vsc ReSharper.ReSharper_UnitTestSessionAppendTests<CR>
 	" Reload vsvimrc
 	nnoremap <leader>` :source ~/_vsvimrc<CR>
 "}}}
 
 " Custom Functions --------------------------------------------{{{
+"}}}
+
+" Configuration Notes -----------------------------------------{{{
+"	Edit.LineUp set to <C-k>
+"	Edit.LineDown set to <C-j>
 "}}}
