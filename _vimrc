@@ -5,9 +5,6 @@
 " Plug-Ins ----------------------------------------------------{{{
 	call plug#begin('~/vimfiles/plugged')						" Install plugins to vimfiles/plugged
 		Plug 'srcery-colors/srcery-vim'							" Sorcery colorscheme
-		Plug 'szorfein/fantasy.vim'								" Fantasy colorscheme
-		Plug 'koirand/tokyo-metro.vim'							" Tokyo Metro colorscheme
-		Plug 'BrainDeath0/Hypsteria'							" Hypsteria colorscheme
 		Plug 'kien/ctrlp.vim'									" File finder
 		Plug 'vim-airline/vim-airline'							" Statusline replacement
 		Plug 'vim-airline/vim-airline-themes'					" Airline colorschemes
@@ -24,14 +21,14 @@
 
 	" Airline configuration
 		let g:airline_theme='night_owl'
-		set noshowmode												" Hides mode information below lightline
+		set noshowmode											" Hides mode information below lightline
 
 	" Vim-Plug shortcuts
 		nnoremap <leader>Ei :PlugInstall<CR>
 
 	" CtrlP setup and mappings
 		let g:ctrlp_map = '<c-p>'
-		let g:ctrlp_working_path_mode = 'c'							" Set working directory off of current file
+		let g:ctrlp_working_path_mode = 'c'						" Set working directory off of current file
 		let g:ctrlp_cmd = 'CtrlP'
 		" Allow for searching in a given directory
 		nnoremap <leader>mp :CtrlP
@@ -47,14 +44,14 @@
 
 	" Goyo and Limelight config/mappings
 		nnoremap <leader>mg :Goyo<CR>
-		let g:goyo_width=120										" Default Goyo width
-		let g:goyo_height='85%'										" Default Goyo height
+		let g:goyo_width=120									" Default Goyo width
+		let g:goyo_height='85%'									" Default Goyo height
 		autocmd! User GoyoEnter call GoyoSetup()
 		autocmd! User GoyoLeave call GoyoTeardown()
 "}}}
 
 " Colors ------------------------------------------------------{{{
-	colorscheme srcery											" Set colorscheme
+	colorscheme srcery	 										" Set colorscheme
 	syntax enable												" Enable syntax highlighting
 "}}}
 
@@ -141,6 +138,8 @@
 			nnoremap <leader>cr :messages<CR>
 
 		" Buffer Mappings
+			" Take argument to open buffer vertically split
+			nnoremap <leader>bv :vert sb
 			" List all buffers
 			nnoremap <leader>bl :ls<CR>
 			" List all buffers, then take new buffer argument
@@ -149,8 +148,12 @@
 			nnoremap <leader>bn :bn<CR>
 			" Go to previous buffer
 			nnoremap <leader>bp :bp<CR>
-			" Switch to alternate buffer
+			" Switch to swap buffer
 			nnoremap <leader>bs <C-^>
+			" Open swap buffer in vertical split
+			nnoremap <leader>bav :vert sb #<CR>
+			" Open swap buffer in horizontal split
+			nnoremap <leader>bah :sb #<CR>
 
 		" Tab Mappings
 			" Go to previous tab

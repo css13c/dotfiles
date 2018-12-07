@@ -32,8 +32,11 @@
 	vnoremap <leader>eu :vsc Edit.UncommentSelection<CR>
 	nnoremap <leader>us :vsc ReSharper.ReSharper_ShowUnitTestSessions<CR>
 	nnoremap <leader>ur :vsc ReSharper.ReSharper_UnitTestSessionRepeatPreviousRun<CR>
-	nnoremap <leader>ug :vsc ReSharper.ReSharper_UnitTestRunCurrentSession<CR>
+	nnoremap <leader>uc :vsc ReSharper.ReSharper_UnitTestRunCurrentSession<CR>
 	nnoremap <leader>ua :vsc ReSharper.ReSharper_UnitTestSessionAppendTests<CR>
+	nnoremap <leader>ud :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
+	nnoremap <leader>og :vsc Tools.ExternalCommand1<CR>
+	nnoremap <leader>sv :vsc Window.NewVerticalTabGroup<CR>
 	" Reload vsvimrc
 	nnoremap <leader>` :source ~/_vsvimrc<CR>
 "}}}
