@@ -9,22 +9,25 @@
 		Plug 'vim-airline/vim-airline'							" Statusline replacement
 		Plug 'vim-airline/vim-airline-themes'					" Airline colorschemes
 		Plug 'terryma/vim-multiple-cursors'						" Sublime-style multi-cursors
-		Plug 'airblade/vim-gitgutter'							" Shows git changes in file
 		Plug 'tomtom/tcomment_vim'								" Adds visual studio style comment selection
 		Plug 'junegunn/goyo.vim'								" Removes visual elements
 		Plug 'junegunn/limelight.vim'							" Highlights current text, used only with Goyo
 		Plug 'easymotion/vim-easymotion'						" Helps move around files faster
+		Plug 'airblade/vim-gitgutter'							" Shows Git changes in file
 		Plug 'tpope/vim-fugitive'								" Git wrapper
 		Plug 'tpope/vim-surround'								" Modify surrounding qutoes, braces, etc.
 		Plug 'tpope/vim-eunuch'									" Add common UNIX commands
 	call plug#end()
 
 	" Airline configuration
-		let g:airline_theme='night_owl'
+		let g:airline_theme='night_owl'							" Status line theme
+		let g:airline#extensions#branch#enabled = 1				" Show git branch in status line
 		set noshowmode											" Hides mode information below lightline
 
 	" Vim-Plug shortcuts
 		nnoremap <leader>Ei :PlugInstall<CR>
+		nnoremap <leader>Eu :PlugClean<CR>
+		nnoremap <leader>En :PlugUpdate<CR>
 
 	" CtrlP setup and mappings
 		let g:ctrlp_map = '<c-p>'
@@ -46,8 +49,8 @@
 		nnoremap <leader>mg :Goyo<CR>
 		let g:goyo_width=120									" Default Goyo width
 		let g:goyo_height='85%'									" Default Goyo height
-		autocmd! User GoyoEnter call GoyoSetup()
-		autocmd! User GoyoLeave call GoyoTeardown()
+		autocmd! User GoyoEnter call GoyoSetup()				" Calls the GoyoSetup function upon turning on Goyo
+		autocmd! User GoyoLeave call GoyoTeardown()				" Calls the GoyoTeardown function upon turning on Goyo
 "}}}
 
 " Colors ------------------------------------------------------{{{
@@ -82,6 +85,8 @@
 	set ruler													" Display cursor position in status line
 	set nowrap													" Turn off line wrapping
 	set sidescroll=1											" Make side-scrolling load in 1 character at a time
+	set splitright												" Opens vertical splits right of current split
+	set splitbelow												" Opens horizontal splits below current split
 "}}}
 
 " Folding -----------------------------------------------------{{{
@@ -113,25 +118,25 @@
 		" Hotkeyed Files
 			" Format is <leader>o, optional v or h for split, then file hotkey
 			" _vimrc
-			nnoremap <leader>o` :e ~/_vimrc<CR>
-			nnoremap <leader>oh` :sp ~/_vimrc<CR>
-			nnoremap <leader>ov` :vsp ~/_vimrc<CR>
+			nnoremap <leader>o` :e ~/dotfiles/_vimrc<CR>
+			nnoremap <leader>oh` :sp ~/dotfiles/_vimrc<CR>
+			nnoremap <leader>ov` :vsp ~/dotfiles/_vimrc<CR>
 			" _vsvimrc
-			nnoremap <leader>oe :e ~/_vsvimrc<CR>
-			nnoremap <leader>ohe :sp ~/_vsvimrc<CR>
-			nnoremap <leader>ove :vsp ~/_vsvimrc<CR>
+			nnoremap <leader>oe :e ~/dotfiles/_vsvimrc<CR>
+			nnoremap <leader>ohe :sp ~/dotfiles/_vsvimrc<CR>
+			nnoremap <leader>ove :vsp ~/dotfiles/_vsvimrc<CR>
 			" unirc.vim
-			nnoremap <leader>ou :e ~/vimfiles/config/unirc.vim<CR>
-			nnoremap <leader>ohu :sp ~/vimfiles/config/unirc.vim<CR>
-			nnoremap <leader>ovu :vsp ~/vimfiles/config/unirc.vim<CR>
+			nnoremap <leader>ou :e ~/dotfiles/vimfiles/config/unirc.vim<CR>
+			nnoremap <leader>ohu :sp ~/dotfiles/vimfiles/config/unirc.vim<CR>
+			nnoremap <leader>ovu :vsp ~/dotfiles/vimfiles/config/unirc.vim<CR>
 			" .gitconfig
-			nnoremap <leader>og :e ~/.gitconfig<CR>
-			nnoremap <leader>ohg :sp ~/.gitconfig<CR>
-			nnoremap <leader>ovg :vsp ~/.gitconfig<CR>
+			nnoremap <leader>og :e ~/dotfiles/.gitconfig<CR>
+			nnoremap <leader>ohg :sp ~/dotfiles/.gitconfig<CR>
+			nnoremap <leader>ovg :vsp ~/dotfiles/.gitconfig<CR>
 			" ahk file
-			nnoremap <leader>of :e ~/ahk/hotkeys.ahk<CR>
-			nnoremap <leader>ohf :sp ~/ahk/hotkeys.ahk<CR>
-			nnoremap <leader>ovf :vsp ~/ahk/hotkeys.ahk<CR>
+			nnoremap <leader>of :e ~/dotfiles/ahk/hotkeys.ahk<CR>
+			nnoremap <leader>ohf :sp ~/dotfiles/ahk/hotkeys.ahk<CR>
+			nnoremap <leader>ovf :vsp ~/dotfiles/ahk/hotkeys.ahk<CR>
 
 		" Messages Mappings
 			nnoremap <leader>cc :messages clear<CR>
@@ -159,7 +164,7 @@
 			" Go to previous tab
 			nnoremap gp :tabp<CR>
 			" Close current tab
-			nnoremap gc :tabclose<CR>
+			nnoremap gC :tabclose<CR>
 
 	" Insert Mode Mappings
 "}}}

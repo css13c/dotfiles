@@ -12,3 +12,4 @@
 	coke = "!f() { git fetch; git checkout -t origin/${1} -b ${2}; git stash pop; }; f"
 	dp = "!f() { git sd; git commit -a -m \"${1}\"; }; f"
 	sprite = reset HEAD~1
+	pr = pull --rebase

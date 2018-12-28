@@ -3,19 +3,21 @@
 "}}}
 
 " Movement ----------------------------------------------------{{{
-	map gt :vsc Window.NextTab<CR>
-	map gp :vsc Window.PreviousTab<CR>
-	map gc :vsc Window.CloseDocumentWindow<CR>
-	map gC :vsc Window.CloseAllDocuments<CR>
-	map gq :vsc Window.PinTab<CR>
-	map gQ :vsc OtherContextMenus.EasyMDIToolWindow.CloseAllButPinned<CR>
-	map gd :vsc ReSharper.ReSharper_GotoImplementations<CR>
-	map gi :vsc Edit.GoToDefinition<CR>
-	map gu :vsc ReSharper.ReSharper_FindUsages<CR>
-	map gU :vsc ReSharper.ReSharper_GotoUsage<CR>
-	map gs :vsc ReSharper.ReSharper_LocateInSolutionOrAssemblyExplorer<CR>
-	map g< :vsc View.NavigateBackward<CR>
-	map g> :vsc View.NavigateForward<CR>
+	nnoremap gt :vsc Window.NextTab<CR>
+	nnoremap gp :vsc Window.PreviousTab<CR>
+	nnoremap gT :vsc Window.NextDocumentWindow<CR>
+	nnoremap gP :vsc Window.PreviousDocumentWindow<CR>
+	nnoremap gc :vsc Window.CloseDocumentWindow<CR>
+	nnoremap gC :vsc Window.CloseAllDocuments<CR>
+	nnoremap gq :vsc Window.PinTab<CR>
+	nnoremap gQ :vsc OtherContextMenus.EasyMDIToolWindow.CloseAllButPinned<CR>
+	nnoremap gd :vsc ReSharper.ReSharper_GotoImplementations<CR>
+	nnoremap gi :vsc Edit.GoToDefinition<CR>
+	nnoremap gu :vsc ReSharper.ReSharper_FindUsages<CR>
+	nnoremap gU :vsc ReSharper.ReSharper_GotoUsage<CR>
+	nnoremap gs :vsc ReSharper.ReSharper_LocateInSolutionOrAssemblyExplorer<CR>
+	nnoremap g< :vsc View.NavigateBackward<CR>
+	nnoremap g> :vsc View.NavigateForward<CR>
 "}}}
 
 " Leader Shortcuts --------------------------------------------{{{
