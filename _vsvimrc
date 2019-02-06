@@ -39,6 +39,8 @@
 	nnoremap <leader>ud :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
 	nnoremap <leader>og :vsc Tools.ExternalCommand1<CR>
 	nnoremap <leader>sv :vsc Window.NewVerticalTabGroup<CR>
+	nnoremap <leader>si :vsc Edit.InsertSnippet<CR>
+	nnoremap <leader>ss :vsc Edit.InvokeSnippetFromShortcut<CR>
 	" Reload vsvimrc
 	nnoremap <leader>` :source ~/_vsvimrc<CR>
 "}}}
