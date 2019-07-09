@@ -13,3 +13,8 @@
 	dp = "!f() { git sd; git commit -a -m \"${1}\"; }; f"
 	sprite = reset HEAD~1
 	pr = pull --rebase
+	cam = "!f() { git commit -a -m \"${1}\"; }; f"
+	cm = "!f() { git commit -m \"${1}\"; }; f"
+	fire = "!f() { git cm \"${1}\"; git stash; git pr; git push; git stash pop; }; f"
+[diff]
+	tool = vimdiff

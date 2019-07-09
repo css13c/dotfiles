@@ -28,7 +28,7 @@
 	nnoremap <leader>da :vsc Debug.AttachtoProcess<CR>
 	nnoremap <leader>db :vsc Debug.ToggleBreakpoint<CR>
 	nnoremap <leader>ds :vsc Debug.Start<CR>
-	nnoremap <leader>dt :vsc Debug.StopDebugging<CR>
+	nnoremap <leader>dS :vsc Debug.StopDebugging<CR>
 	nnoremap <leader>dc :vsc DebuggerContextMenus.ProcessesWindow.ContinueProcess<CR>
 	vnoremap <leader>ec :vsc Edit.CommentSelection<CR>
 	vnoremap <leader>eu :vsc Edit.UncommentSelection<CR>
@@ -37,7 +37,8 @@
 	nnoremap <leader>uc :vsc ReSharper.ReSharper_UnitTestRunCurrentSession<CR>
 	nnoremap <leader>ua :vsc ReSharper.ReSharper_UnitTestSessionAppendTests<CR>
 	nnoremap <leader>ud :vsc ReSharper.ReSharper_UnitTestDebugContext<CR>
-	nnoremap <leader>og :vsc Tools.ExternalCommand1<CR>
+	nnoremap <leader>ov :vsc Tools.ExternalCommand1<CR>
+	nnoremap <leader>og :vsc Tools.ExternalCommand2<CR>
 	nnoremap <leader>sv :vsc Window.NewVerticalTabGroup<CR>
 	nnoremap <leader>si :vsc Edit.InsertSnippet<CR>
 	nnoremap <leader>ss :vsc Edit.InvokeSnippetFromShortcut<CR>
@@ -51,4 +52,5 @@
 " Configuration Notes -----------------------------------------{{{
 "	Edit.LineUp set to <C-k>
 "	Edit.LineDown set to <C-j>
+"	SET GLOBAL pxc_strict_mode=PERMISSIVE;
 "}}}

@@ -116,16 +116,12 @@ return
 OpenVS("Microsoft Visual Studio", "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\devenv.exe")
 return
 
-!h:: ; Opens HeidiSQL
-GetWindow("HeidiSQL", "C:\Program Files\HeidiSQL\heidisql.exe")
-return
-
 !a:: ; Opens Chrome
 GetWindow("Chrome", "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe")
 return
 
-!m:: ; Opens Spotify
-GetWindow("Spotify", "C:\Users\csmith\AppData\Roaming\Spotify\Spotify.exe")
+!m:: ; Opens MySql
+GetWindow("MySQL Workbench", "C:\Program Files\MySQL\MySQL Workbench 8.0 CE\MySQLWorkbench.exe")
 return
 
 !t:: ; Opens Teams
@@ -134,6 +130,14 @@ return
 
 !o:: ; Opens Outlook
 GetWindow("Outlook", "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE")
+return
+
+!s:: ; Opens Slack
+GetWindow("Slack", "C:\Users\csmith\AppData\Local\slack\slack.exe")
+return
+
+!p:: ; Opens Spotify
+GetWindow("Spotify", "C:\Users\csmith\AppData\Roaming\Spotify\Spotify.exe")
 return
 
 !1:: ; Reloads script

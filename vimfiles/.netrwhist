@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='C:/code/axxess-hospice/tests/Axxess.Hospice.Infrastructure.Tests/Queries/Vendors'
 let g:netrw_dirhist_2='C:/Users/csmith/TicketNotes/Personal'
 let g:netrw_dirhist_3='C:/Users/csmith/Documents/Visual Studio 2017/Templates'
 let g:netrw_dirhist_4='C:/Users/csmith/Documents '
+let g:netrw_dirhist_5='c:/code/axxess-hospice-forms'
+let g:netrw_dirhist_6='C:/code/axxess-hospice/src/Axxess.Hospice.Api'
