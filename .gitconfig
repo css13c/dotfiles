@@ -1,20 +1,10 @@
-[core]
-	autocrlf = true
-	excludesfile = C:\\Users\\csmith\\Documents\\gitignore_global.txt
+# This is Git's per-user configuration file.
 [user]
-	name = Connor Smith
-	email = csmith@axxess.com
+name = Connor Smith
+email = csmith78810@gmail.com
+
 [alias]
-	sd = stash -- Axxess.Support.Worker/App.config Presentation/Axxess.Support.Website/Web.config
-	sdp = stash -p -- Axxess.Support.Worker/App.config Presentation/Axxess.Support.Website/Web.config
-	ssf = stash show --name-only
-	sf = diff --name-only HEAD
-	coke = "!f() { git fetch; git checkout -t origin/${1} -b ${2}; git stash pop; }; f"
-	dp = "!f() { git sd; git commit -a -m \"${1}\"; }; f"
-	sprite = reset HEAD~1
-	pr = pull --rebase
-	cam = "!f() { git commit -a -m \"${1}\"; }; f"
-	cm = "!f() { git commit -m \"${1}\"; }; f"
-	fire = "!f() { git cm \"${1}\"; git stash; git pr; git push; git stash pop; }; f"
-[diff]
-	tool = vimdiff
+cam = commit -a -m
+purge = "!f() { git branch | grep -v "master" | sed 's/^[ *]*//' | sed 's/^/git branch -d /' | bash }; f"
+	checkoutr = checkout
+

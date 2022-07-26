@@ -1,8 +1,51 @@
 " Universal Settings ------------------------------------------{{{
-	source ~/vimfiles/config/unirc.vim							" Get settings from unirc
+  
+	" Spaces & Tabs -------------------------------------------{{{
+		set backspace=indent,eol,start							" Allow backspacing over whitespace elements
+	"}}}
+
+	" Visual Config ------------------------------------------{{{
+		set cursorline											" Highlight current line
+		set laststatus=2										" Always dispaly the status line
+	"}}}
+
+	" Remaps -------------------------------------------------{{{
+		" Remap Esc in Insert Mode
+		inoremap kj <Esc>
+
+		" Stops vim from opening in Replace mode
+		nnoremap <esc>^[ <esc>^[
+	"}}}
+
+	" Searching -----------------------------------------------{{{
+		set hlsearch 											" Highlight search results
+		nnoremap <leader><space> :nohlsearch<CR>				" Turn off highlights
+		set incsearch											" Search as characters are entered
+		set ignorecase											" Use case insensitive searching
+		set smartcase											" Case sensitive searching when using capital letters
+	"}}}
+
+	" Leader Settings -----------------------------------------{{{
+		let mapleader=","										" Set leader
+		set timeoutlen=3000										" Wait for 3 sec on mapped key sequences before timeout
+	"}}}
+
+	" Copy / Paste --------------------------------------------{{{
+		nnoremap <leader>y "+y									" Copy to clipboard in normal mode
+		vnoremap <leader>y "+y									" Copy to clipboard in visual mode
+		nnoremap <leader>p "+p									" Paste from clipboard in normal mode
+		vnoremap <leader>p "+p									" Paste from clipboard in visual mode
+	"}}}
 "}}}
 
 " Plug-Ins ----------------------------------------------------{{{
+	" Install vim-plug if not found
+	let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+	if empty(glob(data_dir . '/autoload/plug.vim'))
+		silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+		autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+
 	call plug#begin('~/vimfiles/plugged')						" Install plugins to vimfiles/plugged
 		Plug 'srcery-colors/srcery-vim'							" Sorcery colorscheme
 		Plug 'kien/ctrlp.vim'									" File finder
@@ -54,7 +97,7 @@
 "}}}
 
 " Colors ------------------------------------------------------{{{
-	colorscheme srcery	 										" Set colorscheme
+	colorscheme srcery 											" Set colorscheme
 	syntax enable												" Enable syntax highlighting
 "}}}
 
@@ -64,18 +107,18 @@
 	set smartindent												" Enable smart indent
 	set tabstop=4												" Number of visual spaces per tab
 	set shiftwidth=4											" Use 4 spaces when shifting code
-	set noexpandtab												" Explicitly prevent turning tabs to spaces
+	set expandtab												" Turn tabs to spaces
 
-	" Turn all indentation to tabs
-	nnoremap <leader><tab>r :%retab!<CR>
 	" Remove all trailing whitespace
 	nnoremap <leader><tab>x :call TrimWhitespace()<CR>
 	" Remove trailing whitespace & retab file
 	nnoremap <leader><tab><tab> :%retab!<bar>:call TrimWhitespace()<CR>
+	" Turn all indentation to spaces
+	nnoremap <leader><tab><space> :%retab!<bar>:call TrimWhitespace()<CR>
 "}}}
 
 " Visual Config -----------------------------------------------{{{
-	set number													" Enable line numbering
+	set number relativenumber								    " Enable relative line numbering
 	set showcmd													" Shows last command entered
 	set cmdheight=2												" Set the command window height to 2 lines
 	set wildmenu												" Enables command-line completion
@@ -112,23 +155,15 @@
 
 " Mappings --------------------------------------------{{{
 	" Reload vimrc
-	nnoremap <leader>` :source ~/_vimrc<CR>
+	nnoremap <leader>` :source ~/.vimrc<CR>
 
 	" Normal Mode Mappings
 		" Hotkeyed Files
 			" Format is <leader>o, optional v or h for split, then file hotkey
-			" _vimrc
-			nnoremap <leader>o` :e ~/dotfiles/_vimrc<CR>
-			nnoremap <leader>oh` :sp ~/dotfiles/_vimrc<CR>
-			nnoremap <leader>ov` :vsp ~/dotfiles/_vimrc<CR>
-			" _vsvimrc
-			nnoremap <leader>oe :e ~/dotfiles/_vsvimrc<CR>
-			nnoremap <leader>ohe :sp ~/dotfiles/_vsvimrc<CR>
-			nnoremap <leader>ove :vsp ~/dotfiles/_vsvimrc<CR>
-			" unirc.vim
-			nnoremap <leader>ou :e ~/dotfiles/vimfiles/config/unirc.vim<CR>
-			nnoremap <leader>ohu :sp ~/dotfiles/vimfiles/config/unirc.vim<CR>
-			nnoremap <leader>ovu :vsp ~/dotfiles/vimfiles/config/unirc.vim<CR>
+			" .vimrc
+			nnoremap <leader>o` :e ~/.dotfiles/.vimrc<CR>
+			nnoremap <leader>oh` :sp ~/.dotfiles/.vimrc<CR>
+			nnoremap <leader>ov` :vsp ~/.dotfiles/.vimrc<CR>
 			" .gitconfig
 			nnoremap <leader>og :e ~/dotfiles/.gitconfig<CR>
 			nnoremap <leader>ohg :sp ~/dotfiles/.gitconfig<CR>
@@ -169,11 +204,11 @@
 	" Insert Mode Mappings
 "}}}
 
-" Backups ------------------------------------------------------{{{
-	if !isdirectory($HOME.'/vimfiles/vimtmp')							" Create temp directory on startup if it doesn't exist
+" Backups -----------------------------------------------------{{{
+	if !isdirectory($HOME.'/vimfiles/vimtmp')					" Create temp directory on startup if it doesn't exist
 		silent call mkdir($HOME.'/vimfiles/vimtmp', 'p')
 	endif
-	silent call delete($HOME.'/vimfiles/vimtmp/*')						" Delete all files in temp directory
+	silent call delete($HOME.'/vimfiles/vimtmp/*')				" Delete all files in temp directory
 
 	set backup													" Turn on backup files
 	set backupdir=~/vimfiles/vimtmp//							" Set backup directory
@@ -184,13 +219,13 @@
 
 " Custom Functions --------------------------------------------{{{
 	set pastetoggle=<F11>										" Toggle between 'paste' and 'nopaste'
+
 	" Open vimrc workspace in new tab
 	function! VimrcWorkspace()
-		execute "tabedit " . fnameescape("~/_vimrc")
-		execute "vsp " . fnameescape("~/vimfiles/config/unirc.vim")
+		execute "tabedit " . fnameescape("~/.vimrc")
 		execute "set foldmethod=marker"
 		execute "set foldlevel=0"
-		execute "sp" . fnameescape("~/_vsvimrc")
+		execute "sp" . fnameescape("~/.vsvimrc")
 		execute "set foldlevel=0"
 		execute "normal! ^wh"
 	endfunction
